@@ -8,7 +8,6 @@ class ArtworksController < ApplicationController
         else
             @artworks = Artwork.all
         end
-
    
         render json: @artworks
     end
