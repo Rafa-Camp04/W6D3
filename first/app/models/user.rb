@@ -20,4 +20,13 @@ class User < ApplicationRecord
     through: :artworks,
     source: :artwork_share
 
+    has_many :artwork_shares,
+    foreign_key: :viewer_id,
+    class_name: :ArtworkShare,
+    dependent: :destroy
+
+    has_many :shared_to_user,
+    through: :artwork_shares,
+    source: :artwork
+
 end

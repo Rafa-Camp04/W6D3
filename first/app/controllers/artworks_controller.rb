@@ -4,7 +4,7 @@ class ArtworksController < ApplicationController
         # render plain:"index_action"
 
         if params.has_key?(:user_id)
-            @artworks = Artwork.where(artist_id: params[:user_id])
+            @artworks = Artwork.artworks_for_user_id(params[:user_id])
         else
             @artworks = Artwork.all
         end
